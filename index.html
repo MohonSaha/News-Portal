@@ -20,7 +20,7 @@
     <!-- Navbar goes here -->
     <nav class="navbar navbar-expand-lg bg-transparent">
       <div class="container">
-        <a class="navbar-brand" href="#"><button class="btn btn-primary rounded-0">News</button> Portal</a>
+        <a class="navbar-brand" href="#"><button class="btn btn-primary rounded">News</button> Portal</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
 
     <!-- News Categories section starts-->
     <section class="container categories-container d-flex justify-content-between" id="categories-container">
-      
+
     </section>
     <!-- News Categories section ends -->
   </header>
@@ -53,6 +53,8 @@
       </div>
     </section>
     <!-- Alert section ends -->
+
+    
     <!-- sorting options section -->
     <section class="container d-flex justify-content-between my-4" id="">
       <div class="d-flex justify-content-center align-items-center gap-2">
@@ -67,6 +69,7 @@
           </select>
         </div>
       </div>
+      
       <div class="d-flex gap-2">
         <button class="btn btn-primary" onclick="showTodaysPick()">Todays pick</button>
         <button class="btn btn-outline-secondary" onclick="showTrending()">Trending</button>
@@ -74,7 +77,10 @@
     </section>
     <!-- sorting options section ends -->
 
-    <section class="all-news container mb-4" id="all-news"></section>
+    <section class="all-news container mb-4" id="all-news">
+
+
+    </section>
 
     <!-- Modal body goes here -->
     <!-- Button trigger modal -->
@@ -100,9 +106,6 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
-            </button>
-            <button type="button" class="btn btn-primary">
-              Save changes
             </button>
           </div>
         </div>

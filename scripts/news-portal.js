@@ -30,6 +30,9 @@ const showCategories = (data) => {
   });
 };
 
+
+
+
 // fetch all newses available in a category
 const fetchCategoryNews = (category_id, category_name) => {
   // console.log(category_id);
@@ -43,11 +46,12 @@ const fetchCategoryNews = (category_id, category_name) => {
 };
 
 const showAllNews = (data, category_name) => {
-  console.log(data, category_name);
+  // console.log(data, category_name);
   document.getElementById("news-count").innerText = data.length;
   document.getElementById("category-name").innerText = category_name;
   const newsContainer = document.getElementById("all-news");
   newsContainer.innerHTML = "";
+
   data.forEach((singleNews) => {
     const { _id, image_url, title, details, author, total_view,rating } = singleNews;
     // newsContainer.innerHTML += ``
@@ -62,9 +66,9 @@ const showAllNews = (data, category_name) => {
         <h5 class="card-title">${title}</h5>
         <p class="card-text">
           ${details.slice(0, 200)}...
-        </p>
-        
+        </p>      
       </div>
+
       <div class="card-footer border-0 bg-body d-flex justify-content-between">
         <div class="d-flex gap-2">
         <img src=${
@@ -123,8 +127,8 @@ const showNewsDetail = (newsDetail) => {
     </div>
     <div class="col-md-12 d-flex flex-column">
       <div class="card-body">
-        <h5 class="card-title">${title} <span class="badge text-bg-warning">
-        ${others_info.is_trending ? "Trending" : "Not trending"}</span></h5>
+        <h5 class="card-title">${title} 
+        ${others_info.is_trending ? `<span class="badge text-bg-warning">Trending</span>`: null}</h5>
         <p class="card-text">
           ${details}
         </p>
@@ -144,7 +148,7 @@ const showNewsDetail = (newsDetail) => {
         <div class="d-flex align-items-center">
             <i class="fas fa-eye"></i>
             
-            <p class="m-0 p-0">${total_view}</p>
+            <p class="m-0 p-0">${total_view ? total_view : "Not available"}</p>
         </div>
         <div>
             <i class="fas fa-star"></i>
@@ -175,8 +179,11 @@ const showNewsDetail = (newsDetail) => {
 
 //  0, false, null, undefined, ""
 
+
+
+
 // show trending news
-const showTrending=()=>{
+const showTrending= () =>{
     const trendingNews = fetchData.filter(singleData => singleData.others_info.is_trending === true);
     const category_name = document.getElementById("category-name").innerText;
     showAllNews(trendingNews, category_name);
